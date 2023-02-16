@@ -1,41 +1,21 @@
 <template>
     <div class="container my-5">
-        <div class="text-center">
+        <div class="text-center pb-5">
             <h1 class="text-white">Lista Progetti</h1>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descrizione</th>
-                    <th>Cover_Img</th>
-                    <th>GitHub_Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="project in projects" :key="project.id" class="text-white">
-                    <td>
-<!--                         <div v-if="project.cover_img">
-                            <img :src="backendUrl + '/storage/' + project.cover_img" alt="" class="img-fluid" />
-                        </div> -->
-                    </td>
-<!--                     <td>
-                        <router-link :to="{ name: 'projects.show', params: { id: project.id } }">{{ project.name }}</router-link>
-                    </td> -->
-                    <td>{{ project.id }}</td>
-                    <td>{{ project.name }}</td>
-                    <td>{{ project.description }}</td>
-                    <td>{{ project.github_link }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row g-4">
+            <div v-for="project in projects" :key="project.id" class="col">
+                <ProjectCard :element="project"></ProjectCard>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import axios from "axios";
+import ProjectCard from "../../components/ProjectCard.vue";
 export default {
+    components: { ProjectCard },
     name: "ProjectsIndex",
     data() {
         return {
