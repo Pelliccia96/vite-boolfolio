@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "./pages/Home.vue";
 import ProjectsIndex from "./pages/projects/Index.vue";
+import ProjectsShow from "./pages/projects/Show.vue";
 
 const router = createRouter({
     // Serve ad indicare come gestire l'url al cambio pagina
@@ -18,6 +19,12 @@ const router = createRouter({
             path: "/projects",
             name: "projects.index",
             component: ProjectsIndex
+        },
+        {
+            // lista di un singolo progetto
+            path: "/projects/:id",
+            name: "projects.show",
+            component: ProjectsShow
         },
     ]
 });

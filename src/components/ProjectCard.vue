@@ -4,12 +4,13 @@
             <img :src="backendUrl + '/storage/' + element.cover_img" alt="" class="card-img-top" />
         </div>
         <div class="card-body pt-5">
-            <h5 class="card-title"> {{element.name}}</h5>
+            <h5 class="card-title"> {{ element.name }}</h5>
             <p class="card-text">{{ element.description }}</p>
             <p class="card-text">{{ element.github_link }}</p>
             <p class="card-text">ID: {{ element.id }}</p>
+            <router-link :to="{ name:'project.show', params:{id:element.id} }">Mostra dettagli</router-link>
         </div>
-    </div>
+</div>
 </template>
 
 <script>
