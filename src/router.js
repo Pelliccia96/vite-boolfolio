@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomePage from "./pages/Home.vue";
-import ProjectsIndexPage from "./pages/projects/Index.vue";
+import Home from "./pages/Home.vue";
+import ProjectsIndex from "./pages/projects/Index.vue";
 
 const router = createRouter({
     // Serve ad indicare come gestire l'url al cambio pagina
@@ -10,14 +10,14 @@ const router = createRouter({
         {
             path: "/", // uri da scrivere nel browser
             name: "home", // nome della rotta da usare per creare un link
-            component: HomePage // componente che ritorna l'html della pagina
+            component: Home // componente che ritorna l'html della pagina
         },
         // ... altre rotte
         {
             // lista di tutti i progetti
             path: "/projects",
             name: "projects.index",
-            component: ProjectsIndexPage
+            component: ProjectsIndex
         },
     ]
 });
