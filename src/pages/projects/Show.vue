@@ -1,15 +1,16 @@
 <template>
     <div class="container my-5">
         <div class="text-white">
-            <h1>Pagina dettagli progetti #{{ $route.params.id }}</h1>
-            <h2>{{ project.name }}</h2>
+            <h1 class="text-center my-5">Pagina dettagli progetti</h1>
+            <h2 class="mb-5">Progetto #{{ $route.params.id }}</h2>
+            <h3 class="mb-3">{{ project.name }}</h3>
         </div>
 
-        <div v-if="project.cover_img">
+        <div v-if="project.cover_img" class="mb-3">
             <img :src="backendUrl + '/storage/' + project.cover_img" alt="" class="img-fluid" />
         </div>
 
-        <p class="text-white">{{ project.description }}</p>
+        <p class="text-white mb-3">{{ project.description }}</p>
 
         <router-link :to="{ name:'projects.index', params:{id:project} }">Torna ai progetti</router-link>
     </div>
