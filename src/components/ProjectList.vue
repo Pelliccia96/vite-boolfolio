@@ -20,7 +20,17 @@ export default {
         };
     },
     mounted() {
-        // axios.get(this.store.backendUrl + "/api/post?last6=true")
+        // Funzione Index nel ProjectController api del BackEnd:
+        // Filtro gli ultimi 6 progetti se richiesto, altrimenti ritorna una chiamata normale
+        /* $last6 = $request->input("last6");
+        if ($last6) {
+            $projects = Project::orderBy("created_at", "DESC")->limit(6)->get();
+        } else {
+            $projects = Project::all();
+        }
+        return response()->json($projects); */
+
+        // axios.get(this.store.backendUrl + "/api/project?last6=true")
         axios
             .get(this.store.backendUrl + "/api/projects", {
                 params: {
