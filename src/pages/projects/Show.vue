@@ -7,7 +7,7 @@
         </div>
 
         <div v-if="project.cover_img" class="mb-3">
-            <img :src="backendUrl + '/storage/' + project.cover_img" alt="" class="img-fluid" />
+            <img :src="this.store.backendUrl + '/storage/' + project.cover_img" alt="" class="img-fluid" />
         </div>
 
         <p class="text-white mb-3">{{ project.description }}</p>
@@ -18,11 +18,12 @@
 
 <script>
 import axios from "axios";
+import { store } from "../../store";
 export default {
     name: "ProjectsShow",
     data() {
         return {
-            backendUrl: "http://127.0.0.1:8000",
+            store,
             /**
              * @type {{name: string, description: string, cover_img: string, github_link: string, category_id: number, tags: array, id: number}[]}
             */
@@ -31,7 +32,7 @@ export default {
     },
     mounted() {
         axios
-            .get(this.backendUrl + "/api/projects/" + this.$route.params.id)
+            .get(this.store.backendUrl + "/api/projects/" + this.$route.params.id)
             // .get(`${ this.backendUrl }/api/posts/${ this.$route.params.id }`)
             .then((resp) => {
                 this.project = resp.data;

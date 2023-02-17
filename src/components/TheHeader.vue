@@ -5,7 +5,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item" v-for="(link, i) in linksNavbar" :key="i">
                         <router-link :to="{ name: link.routeName }" class="nav-link">
-                            {{ link.label }}
+                            <span class="fw-bold px-3">{{ link.label }}</span>
                         </router-link>
                     </li>
                 </ul>

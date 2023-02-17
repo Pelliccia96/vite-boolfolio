@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div v-if="element.cover_img">
-            <img :src="backendUrl + '/storage/' + element.cover_img" alt="" class="card-img-top" />
+            <img :src="this.store.backendUrl + '/storage/' + element.cover_img" alt="" class="card-img-top" />
         </div>
         <div class="card-body pt-5">
             <h5 class="card-title"> {{ element.name }}</h5>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { store } from '../store';
 export default {
     props: {
         element: {
@@ -23,7 +24,7 @@ export default {
     name: "ProjectsIndexPage",
     data() {
         return {
-            backendUrl: "http://127.0.0.1:8000",
+            store,
         };
     },
 }

@@ -5,6 +5,7 @@
 
 <script>
 import axios from "axios";
+import { store } from "./store";
 import ProjectCard from "./components/ProjectCard.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheMain from './components/TheMain.vue';
@@ -13,13 +14,13 @@ export default {
   components: { TheMain, ProjectCard, TheHeader },
   data() {
     return {
-      backendUrl: "http://127.0.0.1:8000",
+      store,
       projects: [],
     };
   },
   methods: {
     fetchProjects() {
-      axios.get(this.backendUrl + "/api/projects").then((resp) => {
+      axios.get(this.store.backendUrl + "/api/projects").then((resp) => {
         this.projects = resp.data;
         console.log(this.projects);
       });

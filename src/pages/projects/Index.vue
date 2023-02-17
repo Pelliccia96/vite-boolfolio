@@ -4,7 +4,7 @@
             <h1 class="text-white">Lista Progetti</h1>
         </div>
         <div class="row g-4">
-            <div v-for="project in projects" :key="project.id" class="col">
+            <div v-for="project in projects" :key="project.id" class="col-2">
                 <ProjectCard :element="project"></ProjectCard>
             </div>
         </div>
@@ -13,13 +13,14 @@
 
 <script>
 import axios from "axios";
+import { store } from "../../store";
 import ProjectCard from "../../components/ProjectCard.vue";
 export default {
     components: { ProjectCard },
     name: "ProjectsIndex",
     data() {
         return {
-            backendUrl: "http://127.0.0.1:8000",
+            store,
             /**
              * @type {{name: string, description: string, cover_img: string, github_link: string, category_id: number, tags: array, id: number}[]}
             */
@@ -28,7 +29,7 @@ export default {
     },
     methods: {
         fetchProjects() {
-            axios.get(this.backendUrl + "/api/projects").then((resp) => {
+            axios.get(this.store.backendUrl + "/api/projects").then((resp) => {
                 this.projects = resp.data;
                 console.log(this.projects);
             });
