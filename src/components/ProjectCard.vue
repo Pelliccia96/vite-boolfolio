@@ -19,6 +19,7 @@ export default {
     props: {
         element: {
             type: Object,
+            required: true,
         }
     },
     name: "ProjectsIndexPage",

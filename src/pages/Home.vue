@@ -11,6 +11,9 @@
                     <div class="my-5">
                         <h2>Ultimi progetti aggiunti:</h2>
                     </div>
+                    <div>
+                        <ProjectList></ProjectList>
+                    </div>
                 </div>
             </div>
         </section>
@@ -18,8 +21,11 @@
 </template>
 
 <script>
+import ProjectList from '../components/ProjectList.vue';
+
 export default {
-    name: "Home"
+    name: "Home",
+    components: { ProjectList }
 }
 </script>
 
