@@ -6,12 +6,10 @@
 <script>
 import axios from "axios";
 import { store } from "./store";
-import ProjectCard from "./components/ProjectCard.vue";
 import TheHeader from "./components/TheHeader.vue";
-import TheMain from './components/TheMain.vue';
 
 export default {
-  components: { TheMain, ProjectCard, TheHeader },
+  components: { TheHeader },
   data() {
     return {
       store,
