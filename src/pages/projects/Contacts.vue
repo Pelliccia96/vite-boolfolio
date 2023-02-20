@@ -101,6 +101,14 @@ export default {
             this.form.attachment = chosenFiles[0];
         }
     },
+
+     /* Nel nostro server back-end creiamo il Api/ContactController per la funzione Store con relativi Model e migration
+     fn store (Request $request) {$data = $request->validate}
+     salviamo i dati ricevuti dentro una tabella dedicata
+     $newContact = Contact::create($data);
+     ritorniamo sempre i dati dell'elemento creato / aggiornato
+     return response()->json($newContact); */
+
 };
 </script>
 
