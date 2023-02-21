@@ -109,6 +109,15 @@ export default {
      ritorniamo sempre i dati dell'elemento creato / aggiornato
      return response()->json($newContact); */
 
+    /* se ricevo un allegato, ne salvo il file ed il percorso
+    if ($request->has("attachment")) {
+        recupero il path del file appena caricato
+        $filePath = Storage::put("/contacts", $data["attachment"]);
+
+        lo assegno alla chiave attachment
+        $data["attachment"] = $filePath;
+    } */
+
 };
 </script>
 
